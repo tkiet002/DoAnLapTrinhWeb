@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Dangky";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- breadcrumbs -->
+<div class="breadcrumbs">
+    <div class="container">
+        <ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
+            <li><a href="@Url.Action("Index" , "Home")"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
+            <li class="active">Đăng Ký</li>
+        </ol>
+    </div>
+</div>
+<!-- //breadcrumbs -->
+<!-- register -->
+<div class="register">
+    <div class="container">
+        <h3 class="animated wow zoomIn" data-wow-delay=".5s">Đăng Ký</h3>
+        <p class="est animated wow zoomIn" data-wow-delay=".5s">
+            Đăng Ký Tài Khoản, Tham Gia Cùng Chúng Tôi.
+        </p>
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
+            <div class="login-form-grids">
+                <h5 class="animated wow slideInUp" data-wow-delay=".5s">profile information</h5>
+                <form class="animated wow slideInUp" data-wow-delay=".5s">
+
+                    @Html.TextBox("HotenKH", "", new { placeholder = "Họ và tên" })
+                    @ViewData["LoiHoten"]
+                    @Html.TextBox("TenDN", "", new { placeholder = "Tên Tài Khoản" })
+                    @ViewData["LoiTenDN"]
+                    @Html.Password("Matkhau", "", new { placeholder = "Mật Khẩu" })
+                    @ViewData["LoiMatKhau"]
+                    @Html.Password("MatkhauNhapLai", "", new { placeholder = "Nhập lại Mật Khẩu" })
+                    @ViewData["LoiMatKhauLai"]
+                    @Html.TextBox("Email", "", new { placeholder = "Email", type = "email" })
+                    @ViewData["LoiEmail"]
+                    @Html.TextBox("SoDienThoai", "", new { placeholder = "Số Điện Thoại" })
+                    @ViewData["LoiSDT"]
+                    @Html.TextBox("Diachi", "", new { placeholder = "Địa Chỉ" })
+                    @ViewData["LoiDiachi"]
+
+                    <input type="Submit" value="Register">
+                </form>
+            </div>
+        }
+        <div class="register-home animated wow slideInUp" data-wow-delay=".5s">
+            <a href="@Url.Action("Index","Home")">Home</a>
+        </div>
+    </div>
+</div>
+<!-- //register -->

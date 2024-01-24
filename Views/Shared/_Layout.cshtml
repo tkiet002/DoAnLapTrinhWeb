@@ -1,0 +1,283 @@
+﻿@{
+    ViewBag.Title = "_Layout";
+}
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>52Hz Studio - Melody To Your Dreamer</title>
+    <!-- for-mobile-apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Best Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+               function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //for-mobile-apps -->
+    <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/style1.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- js -->
+    <script src="~/Scripts/jquery.min.js"></script>
+    <!-- //js -->
+    <!-- cart -->
+    <script src="~/Scripts/simpleCart.min.js"></script>
+    <!-- cart -->
+    <!-- for bootstrap working -->
+    <script type="text/javascript" src="~/Scripts/bootstrap-3.1.1.min.js"></script>
+    <!-- //for bootstrap working -->
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <!-- timer -->
+    <link rel="stylesheet" href="~/Content/jquery.countdown.css" />
+    <!-- //timer -->
+    <!-- animation-effect -->
+    <link href="~/Content/animate.min.css" rel="stylesheet">
+    <script src="~/Scripts/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <!-- //animation-effect -->
+</head>
+
+<body>
+    <!-- header -->
+    <div class="header no-print">
+        <div class="container">
+            <div class="header-grid">
+                <div class="header-grid-left animated wow slideInLeft" data-wow-delay=".5s">
+                    <ul>
+                        <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">52hzstudio@gmail.com</a></li>
+                        <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+84 0929 312 93</li>
+
+                        @if (Session["TaiKhoan"] != null)
+                        {
+                            <li><i class="glyphicon glyphicon-heart" aria-hidden="true"></i><a href="#">Welcome @Session["Username"]</a></li>
+                            <li><i class="glyphicon glyphicon-log-out" aria-hidden="true"></i><a href="@Url.Action("DangXuat", "Nguoidung")">Đăng Xuất</a></li>
+                        }
+                        else
+                        {
+                            <li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i><a href="@Url.Action("Dangnhap", "Nguoidung")">Login</a></li>
+                            <li><i class="glyphicon glyphicon-book" aria-hidden="true"></i><a href="@Url.Action("Dangky", "Nguoidung")">Register</a></li>
+                        }
+                    </ul>
+                </div>
+                <div class="header-grid-right animated wow slideInRight" data-wow-delay=".5s">
+                    <ul class="social-icons">
+                        <li><a href="#" class="facebook"></a></li>
+                        <li><a href="#" class="twitter"></a></li>
+                        <li><a href="#" class="g"></a></li>
+                        <li><a href="#" class="instagram"></a></li>
+                    </ul>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="logo-nav">
+                <div class="logo-nav-left animated wow zoomIn" data-wow-delay=".25s">
+                    <h1><a href="@Url.Action("Index" , "Home")">52Hz STUDIO <span style="font-size: 7px;">Melody to Your Dreamer</span></a></h1>
+                </div>
+                <div class="logo-nav-left1">
+                    <nav class="navbar navbar-default">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header nav_2">
+                            <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="@Url.Action("Index", "Home")" class="act">Trang Trủ</a></li>
+                                <!-- Mega Menu -->
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sản Phẩm <b class="caret"></b></a>
+                                    <ul class="dropdown-menu multi-column columns-3">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <ul class="multi-column-dropdown">
+                                                    <h6>Violin</h6>
+                                                       <!--Nhap o day-->
+                                                        @Html.Action("Thuonghieu","Home")
+                                                </ul>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <ul class="multi-column-dropdown">
+                                                    <h6>Piano</h6>
+                                                     @Html.Action("ThuonghieuPiano" , "Home")
+                                                </ul>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <ul class="multi-column-dropdown">
+                                                    <h6>Guitar</h6>
+                                                     <!--Thuong Hieu Guitar se update sau hien tai chua co-->
+                                                </ul>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </ul>
+                                </li>
+                                <!--Khóa Học-->
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Khóa Học <b class="caret"></b></a>
+                                    <ul class="dropdown-menu multi-column columns-3">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <ul class="multi-column-dropdown">
+                                                    <h6>Khóa Học</h6>
+                                                    <li><a href="products.html">Violin</a></li>
+                                                    <li><a href="products.html">Piano</a></li>
+                                                    <li><a href="products.html">Guitar</a></li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </ul>
+                                </li>
+                        </div>
+                    </nav>
+                </div>
+                <div class="logo-nav-right">
+                    <div class="search-box">
+                        <div id="sb-search" class="sb-search">
+                            <form>
+                                <input class="sb-search-input" placeholder="Enter your search term..." type="search" id="search">
+                                <input class="sb-search-submit" type="submit" value="">
+                                <span class="sb-icon-search"> </span>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- search-scripts -->
+                    <script src="~/Scripts/classie.js"></script>
+                    <script src="~/Scripts/uisearch.js"></script>
+                    <script>
+								new UISearch( document.getElementById( 'sb-search' ) );
+                    </script>
+                    <!-- //search-scripts -->
+                </div>
+                <div class="header-right">
+                    <div class="cart box_1">
+                        <a href="@Url.Action("Giohang", "Giohang")">
+                            <h3>
+                                <div class="total">
+                                    (<span @*id="simpleCart_quantity"*@ @*class="simpleCart_quantity"*@> @Html.Action("GiohangPartial", "Giohang")</span> items)
+                                    
+                                </div>
+                                <img src="~/Images/bag.png" alt="" />
+                            </h3>
+                        </a>
+                        @*<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>*@
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!-- //header -->
+    @RenderBody()
+    <!-- footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="footer-grids">
+                <div class="col-md-8 footer-grid animated wow slideInLeft" data-wow-delay=".25s">
+                    <h3>About Us</h3>
+                    <p>
+                        Chúng tôi là một công ty chuyên buôn bán các sản phẩm về nhạc cụ<span>
+                            Thành lập năm 2024, tuy là công ty non trẻ nhưng với tâm huyết và mong muốn<span> đem đến cho các bạn một nhạc cụ tốt nhất với tầm giá phải trăng</span>
+                        </span>
+                    </p>
+                </div>
+                <div class="col-md-4 footer-grid animated wow slideInLeft" data-wow-delay=".26s">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>433, Nguyễn Tất Thành, Q4 <span>Thành Phố Hồ Chí Minh.</span></li>
+                        <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">52hzstudio@gmail.com</a></li>
+                        <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+84 0929 312 93</li>
+                    </ul>
+                </div>
+                <!-- <div class="col-md-3 footer-grid animated wow slideInLeft" data-wow-delay=".7s">
+                    <h3>Flickr Posts</h3>
+                    <div class="footer-grid-left">
+                        <a href="single.html"><img src="images/13.jpg" alt=" " class="img-responsive" /></a>
+                    </div>
+                    <div class="footer-grid-left">
+                        <a href="single.html"><img src="images/14.jpg" alt=" " class="img-responsive" /></a>
+                    </div>
+                    <div class="footer-grid-left">
+                        <a href="single.html"><img src="images/15.jpg" alt=" " class="img-responsive" /></a>
+                    </div>
+                    <div class="footer-grid-left">
+                        <a href="single.html"><img src="images/16.jpg" alt=" " class="img-responsive" /></a>
+                    </div>
+                    <div class="footer-grid-left">
+                        <a href="single.html"><img src="images/13.jpg" alt=" " class="img-responsive" /></a>
+                    </div>
+                    <div class="footer-grid-left">
+                        <a href="single.html"><img src="images/14.jpg" alt=" " class="img-responsive" /></a>
+                    </div>
+                    <div class="footer-grid-left">
+                        <a href="single.html"><img src="images/15.jpg" alt=" " class="img-responsive" /></a>
+                    </div>
+                    <div class="footer-grid-left">
+                        <a href="single.html"><img src="images/16.jpg" alt=" " class="img-responsive" /></a>
+                    </div>
+                    <div class="footer-grid-left">
+                        <a href="single.html"><img src="images/13.jpg" alt=" " class="img-responsive" /></a>
+                    </div>
+                    <div class="footer-grid-left">
+                        <a href="single.html"><img src="images/14.jpg" alt=" " class="img-responsive" /></a>
+                    </div>
+                    <div class="footer-grid-left">
+                        <a href="single.html"><img src="images/15.jpg" alt=" " class="img-responsive" /></a>
+                    </div>
+                    <div class="footer-grid-left">
+                        <a href="single.html"><img src="images/16.jpg" alt=" " class="img-responsive" /></a>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div> -->
+                <!-- <div class="col-md-4 footer-grid animated wow slideInLeft" data-wow-delay=".8s">
+                    <h3>Blog Posts</h3>
+                    <div class="footer-grid-sub-grids">
+                        <div class="footer-grid-sub-grid-left">
+                            <a href="single.html"><img src="images/9.jpg" alt=" " class="img-responsive" /></a>
+                        </div>
+                        <div class="footer-grid-sub-grid-right">
+                            <h4><a href="single.html">culpa qui officia deserunt</a></h4>
+                            <p>Posted On 25/3/2016</p>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="footer-grid-sub-grids">
+                        <div class="footer-grid-sub-grid-left">
+                            <a href="single.html"><img src="images/10.jpg" alt=" " class="img-responsive" /></a>
+                        </div>
+                        <div class="footer-grid-sub-grid-right">
+                            <h4><a href="single.html">Quis autem vel eum iure</a></h4>
+                            <p>Posted On 25/3/2016</p>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div> -->
+                <div class="clearfix"> </div>
+            </div>
+            <div class="footer-logo animated wow slideInUp" data-wow-delay=".25s">
+                <h2><a href="@Url.Action("Index", "Home")">52Hz Studio<span>Melody To Your Dreamer </span></a></h2>
+            </div>
+            <div class="copy-right animated wow slideInUp" data-wow-delay=".25s">
+                <p>&copy 2024 52Hz Studio. All rights reserved </p>
+            </div>
+        </div>
+    </div>
+    <!-- //footer -->
+</body>
+</html>
+

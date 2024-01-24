@@ -1,0 +1,129 @@
+﻿@using DoAnLapTrinhWeb.Models
+@model List<Giohang>
+@{
+    ViewBag.Title = "Giohang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- breadcrumbs -->
+<div class="breadcrumbs">
+    <div class="container">
+        <ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
+            <li><a href="@Url.Action("Index", "Home")"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
+            <li class="active">Thanh Toán</li>
+        </ol>
+    </div>
+</div>
+<!-- //breadcrumbs -->
+<!-- checkout -->
+<div class="checkout">
+    <div class="container">
+        <h3 class="animated wow slideInLeft" data-wow-delay=".5s">Giỏ Hàng Của Bạn Hiện Đang Chứa: <span>@Model.Count Sản Phẩm</span></h3>
+        <div class="checkout-right animated wow slideInUp" data-wow-delay=".5s">
+            <table class="timetable_sub">
+                <thead>
+                    <tr>
+                        <th>SL No.</th>
+                        <th>Product</th>
+                        <th>Quality</th>
+                        <th>Product Name</th>
+                        <th>Service Charges</th>
+                        <th>Price</th>
+                        <th>Remove</th>
+                        <th>Cập Nhật</th>
+                    </tr>
+                </thead>
+                @foreach (var item in Model)
+                {
+            <tr class="rem1">
+                @using (Html.BeginForm("CapNhatGioHang", "GioHang", new { @iMaDAN = item.iMaDAN }))
+                {
+                    <td class="invert">@item.iMaDAN</td>
+                    <td class="invert-image"><a href="@Url.Action("Details", "Home", new { id = item.iMaDAN })"><img src="@item.sAnhMinhHoa" alt=" " class="img-responsive" /></a></td>
+                    <td class="invert" style="min-width: 10.8em;">
+                        <div class="quantity">
+                            <div class="quantity-select">
+                                <div class="entry value-minus">&nbsp;</div>
+                                <div class="entry value">
+                                    
+                                    <span ><input type="number" min="1" name="txtSoLuong" id="quality-input" class="value" value="@item.iSoLuong" style="border:none; "/></span>                                
+                                </div>
+                                <div class="entry value-plus active">&nbsp;</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="invert">@item.sTenDAN</td>
+                    <td class="invert">0</td>
+                    <td class="invert">@String.Format("{0:0,0}", item.dDongia) VNĐ</td>
+                    <td class="invert">
+                        <div class="rem">
+                            <div class="">@Html.ActionLink("X", "XoaGioHang", new { @MaDAN = item.iMaDAN})</div>
+                        </div>
+                        <script>
+                            $(document).ready(function (c) {
+                                $('.close1').on('click', function (c) {
+                                    $('.rem1').fadeOut('slow', function (c) {
+                                        $('.rem1').remove();
+                                    });
+                                });
+                            });
+                        </script>
+                    </td>
+                    <td class="invert">
+                        <input type="submit" value="Cập Nhật" class="value" style="width:fit-content" />
+                    </td>
+                }
+            </tr>
+            }
+            
+
+
+                        <!--quantity-->
+                        <script>
+                            $('.value-plus').on('click', function () {
+                                //var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10) + 1;
+                                //divUpd.val(newVal);
+
+                                var inputElement = document.getElementById('quality-input');
+                                var currentValue = parseInt(inputElement.value);
+                                var newValue = currentValue + 1;
+
+                                inputElement.value = newValue;
+
+                            });
+
+                            $('.value-minus').on('click', function () {
+                                //var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10) - 1;
+                                //if (newVal >= 1) divUpd.val(newVal);
+                                var inputElement = document.getElementById('quality-input');
+                                var currentValue = parseInt(inputElement.value);
+                                var newValue = currentValue - 1;
+                                newValue = Math.max(newValue, 0);
+                                inputElement.value = newValue;
+                            });
+                        </script>
+                        <!--quantity-->
+                    </table>
+        </div>
+        <div class="checkout-left">
+            <div class="checkout-left-basket animated wow slideInLeft" data-wow-delay=".5s">
+                <h4>Hóa Đơn</h4>
+                <ul>
+
+                    @foreach (var item in Model)
+                    {
+                        <li>@item.sTenDAN <i>-</i> <span>@String.Format("{0:0,0}", item.dDongia) VNĐ</span></li>
+                        
+                    }
+                    <li>Tổng tiền <i>-</i> <span>@Html.Action("TongTienPartial", "Giohang")</span></li>
+                </ul>
+            </div>
+            <div class="checkout-right-basket animated wow slideInRight" data-wow-delay=".5s">
+                <a href="@Url.Action("Index", "Home")"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Tiếp Tục Mua Sắm</a>
+                <a href="@Url.Action("Dathang", "Giohang")"><span class="glyphicon glyphicon-check" aria-hidden="true"></span>Xác nhận Thanh Toán</a>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>
+<!-- //checkout -->

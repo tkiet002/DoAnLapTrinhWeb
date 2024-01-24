@@ -1,0 +1,291 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!-- breadcrumbs -->
+<div class="breadcrumbs">
+    <div class="container">
+        <ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
+            <li><a href="@Url.Action("Index", "Home")"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
+            <li class="active">Chi Tiết Sản Phẩm</li>
+        </ol>
+    </div>
+</div>
+<div class="products">
+    <div class="container">
+        <div class="col-md-4 products-left">
+            <!--<div class="filter-price animated wow slideInUp" data-wow-delay=".5s">
+                        <h3>Filter By Price</h3>
+                        <ul class="dropdown-menu1">
+                            <li>
+                                <a href="">
+                                    <div id="slider-range"></div>
+                                    <input type="text" id="amount" style="border: 0" />
+                                </a>
+                            </li>
+                        </ul>
+                        <script type='text/javascript'>
+        //<![CDATA[
+                                $(window).load(function(){
+                                 $( "#slider-range" ).slider({
+                                        range: true,
+                                        min: 0,
+                                        max: 100000,
+                                        values: [ 20000, 80000 ],
+                                        slide: function( event, ui ) {  $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+                                        }
+                             });
+                            $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) + " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+
+
+                                });//]]>
+                        </script>
+                        <script type="text/javascript" src="~/Scripts/jquery-ui.min.js"></script>-->
+            <!---->
+            <!--</div>-->
+            <div class="categories animated wow slideInUp" data-wow-delay=".5s">
+                <h3>Categories</h3>
+                <ul class="cate">
+                    @*<li><a href="products.html">Best Selling</a> <span>(15)</span></li>*@
+                    <li><a href="#">Violin</a> <span>(16)</span></li>
+                    <ul>
+                        @Html.Action("Thuonghieu", "Home")
+                    </ul>
+                    @*<li><a href="products.html">Sales</a> <span>(15)</span></li>*@
+                    <li><a href="products.html">Piano</a> <span>@*(15)*@</span></li>
+                    <ul>
+                        @Html.Action("ThuonghieuPiano", "Home")
+                    </ul>
+                    <li><a href="products.html">Guitar</a> <span>@*(15)*@</span></li>
+                    <ul>
+                        @Html.Action("ThuonghieuPiano", "Home")
+                    </ul>
+                </ul>
+            </div>
+            <div class="new-products animated wow slideInUp" data-wow-delay=".5s">
+                <h3>New Products</h3>
+                <div class="new-products-grids">
+                    @Html.Action("SPMoiTheoThuongHieu", "Home")
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-8 products-right">
+            <div class="products-right-grid">
+                @*<div class="products-right-grids animated wow slideInRight" data-wow-delay=".5s">
+                    <div class="sorting">
+                        <select id="country" onchange="change_country(this.value)" class="frm-field required sect">
+                            <option value="null">Default sorting</option>
+                            <option value="null">Sort by popularity</option>
+                            <option value="null">Sort by average rating</option>
+                            <option value="null">Sort by price</option>
+                        </select>
+                    </div>
+                    <div class="sorting-left">
+                        <select id="country1" onchange="change_country(this.value)" class="frm-field required sect">
+                            <option value="null">Item on page 9</option>
+                            <option value="null">Item on page 18</option>
+                            <option value="null">Item on page 32</option>
+                            <option value="null">All</option>
+                        </select>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>*@
+                <p style="margin:50px"></p>
+            </div>
+
+            <!--Sản Phẩm-->
+            <div class="col-md-15 single-right">
+                <div class="col-md-5 single-right-left animated wow slideInUp" data-wow-delay=".5s">
+                    <div class="flexslider">
+                        <ul class="slides">
+                            <li data-thumb="@Model.AnhMinhHoa">
+                                <div class="thumb-image"> <img src="@Model.AnhMinhHoa" data-imagezoom="true" class="img-responsive"> </div>
+                            </li>
+                            <li data-thumb="@Model.AnhMinhHoa">
+                                <div class="thumb-image"> <img src="@Model.AnhMinhHoa" data-imagezoom="true" class="img-responsive"> </div>
+                            </li>
+                            <li data-thumb="@Model.AnhMinhHoa">
+                                <div class="thumb-image"> <img src="@Model.AnhMinhHoa" data-imagezoom="true" class="img-responsive"> </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- flixslider -->
+                    <script defer src="~/Scripts/jquery.flexslider.js"></script>
+                    <link rel="stylesheet" href="~/Content/flexslider.css" type="text/css" media="screen" />
+                    <script>
+                        // Can also be used with $(document).ready()
+                        $(window).load(function () {
+                            $('.flexslider').flexslider({
+                                animation: "slide",
+                                controlNav: "thumbnails"
+                            });
+                        });
+                    </script>
+                    <!-- flixslider -->
+                </div>
+                <div class="col-md-7 single-right-left simpleCart_shelfItem animated wow slideInRight" data-wow-delay=".5s">
+                    <h3>@Model.TenDAN</h3>
+                    <h4><span class="item_price">@String.Format("{0:0,0}", @Model.GiaBan) VNĐ</h4>
+                    <div class="rating1">
+                        <span class="starRating">
+                            <input id="rating5" type="radio" name="rating" value="5">
+                            <label for="rating5">5</label>
+                            <input id="rating4" type="radio" name="rating" value="4">
+                            <label for="rating4">4</label>
+                            <input id="rating3" type="radio" name="rating" value="3" checked>
+                            <label for="rating3">3</label>
+                            <input id="rating2" type="radio" name="rating" value="2">
+                            <label for="rating2">2</label>
+                            <input id="rating1" type="radio" name="rating" value="1">
+                            <label for="rating1">1</label>
+                        </span>
+                    </div>
+                    <div class="description">
+                        <h5><i>Description</i></h5>
+                        <p>
+                            @Model.MoTa
+                        </p>
+                    </div>
+                    <div class="color-quality">
+                        
+                        <div class="color-quality-right">
+                            <h5>Số Lượng Mua :</h5>
+                            <select id="country1" onchange="change_country(this.value)" class="frm-field required sect">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                   
+                    <div class="occasion-cart">
+                        <a class="#" href="@Url.Action("ThemGioHang", "Giohang", new { iMaDAN = Model.MaDAN, strURL = Request.Url.ToString() })">Đặt Mua </a>
+                    </div>
+                    @*<div class="social">
+                        <div class="social-left">
+                            <p>Share On :</p>
+                        </div>
+                        <div class="social-right">
+                            <ul class="social-icons">
+                                <li><a href="#" class="facebook"></a></li>
+                                <li><a href="#" class="twitter"></a></li>
+                                <li><a href="#" class="g"></a></li>
+                                <li><a href="#" class="instagram"></a></li>
+                            </ul>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>*@
+                </div>
+                <div class="clearfix"> </div>
+                <div class="bootstrap-tab animated wow slideInUp" data-wow-delay=".5s">
+                    <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+                        <ul id="myTab" class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Description</a></li>
+                            <li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Reviews(2)</a></li>
+                            <li role="presentation" class="dropdown">
+                                <a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop1-contents">Information <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1" id="myTabDrop1-contents">
+                                    <li><a href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">cleanse</a></li>
+                                    <li><a href="#dropdown2" tabindex="-1" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">fanny</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div id="myTabContent" class="tab-content">
+                            <div role="tabpanel" class="tab-pane fade in active bootstrap-tab-text" id="home" aria-labelledby="home-tab">
+                                <h5>Product Brief Description</h5>
+                                <p>
+                                   <span>@Model.MoTa</span>
+                                </p>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade bootstrap-tab-text" id="profile" aria-labelledby="profile-tab">
+                                <div class="bootstrap-tab-text-grids">
+                                    <div class="bootstrap-tab-text-grid">
+                                        <div class="bootstrap-tab-text-grid-left">
+                                            <img src="images/4.png" alt=" " class="img-responsive" />
+                                        </div>
+                                        <div class="bootstrap-tab-text-grid-right">
+                                            <ul>
+                                                <li><a href="#">Admin</a></li>
+                                                <li><a href="#"><span class="glyphicon glyphicon-share" aria-hidden="true"></span>Reply</a></li>
+                                            </ul>
+                                            <p>
+                                                Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
+                                                suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem
+                                                vel eum iure reprehenderit.
+                                            </p>
+                                        </div>
+                                        <div class="clearfix"> </div>
+                                    </div>
+                                    <div class="bootstrap-tab-text-grid">
+                                        <div class="bootstrap-tab-text-grid-left">
+                                            <img src="images/5.png" alt=" " class="img-responsive" />
+                                        </div>
+                                        <div class="bootstrap-tab-text-grid-right">
+                                            <ul>
+                                                <li><a href="#">Admin</a></li>
+                                                <li><a href="#"><span class="glyphicon glyphicon-share" aria-hidden="true"></span>Reply</a></li>
+                                            </ul>
+                                            <p>
+                                                Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
+                                                suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem
+                                                vel eum iure reprehenderit.
+                                            </p>
+                                        </div>
+                                        <div class="clearfix"> </div>
+                                    </div>
+                                    <div class="add-review">
+                                        <h4>add a review</h4>
+                                        <form>
+                                            <input type="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
+                                            <input type="email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+                                            <input type="text" value="Subject" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Subject';}" required="">
+                                            <textarea type="text" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message...';}" required="">Message...</textarea>
+                                            <input type="submit" value="Send">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade bootstrap-tab-text" id="dropdown1" aria-labelledby="dropdown1-tab">
+                                <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade bootstrap-tab-text" id="dropdown2" aria-labelledby="dropdown2-tab">
+                                <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical. Wolf salvia freegan, sartorial keffiyeh echo park vegan.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+
+        @*<nav class="numbering animated wow slideInRight" data-wow-delay=".5s">
+            <ul class="pagination paging">
+                <li>
+                    <a href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="active"><a href="#">1<span class="sr-only">(current)</span></a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li>
+                    <a href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>*@
+    </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<!-- //breadcrumbs -->

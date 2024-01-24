@@ -1,0 +1,221 @@
+﻿@model IEnumerable<DoAnLapTrinhWeb.Models.DAN>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- banner -->
+<div class="banner">
+    <div class="container">
+        <div class="banner-info animated wow zoomIn" data-wow-delay=".5s">
+            <h3 style="font-family:serif; color:black;background-color:white;" >52Hz Studio</h3>
+            <h4 style="font-family:serif;">Mừng ngày khai trương, giảm giá lên tới<span>25% <i></i></span></h4>
+            <div class="wmuSlider example1">
+                <div class="wmuSliderWrapper">
+                    <article style="position: absolute; width: 100%; opacity: 0;">
+                        <div class="banner-wrap">
+                            <div class="banner-info1">
+                                <p></p>
+                            </div>
+                        </div>
+                    </article>
+                    <article style="position: absolute; width: 100%; opacity: 0;">
+                        <div class="banner-wrap">
+                            <div class="banner-info1">
+                                <p></p>
+                            </div>
+                        </div>
+                    </article>
+                    <article style="position: absolute; width: 100%; opacity: 0;">
+                        <div class="banner-wrap">
+                            <div class="banner-info1">
+                                <p></p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <script src="~/Scripts/jquery.wmuSlider.js"></script>
+            <script>
+						$('.example1').wmuSlider();
+            </script>
+        </div>
+    </div>
+</div>
+<!-- //banner -->
+<!-- banner-bottom -->
+<div class="banner-bottom">
+    <div class="container">
+        <div class="banner-bottom-grids">
+            <div class="banner-bottom-grid-left animated wow slideInLeft" data-wow-delay=".5s">
+                <div class="grid">
+                    <figure class="effect-julia">
+                        <img src="~/Images/Home_Images/4.jpg" alt=" " class="img-responsive" />
+                        <figcaption>
+                            <h3>52 Hz<span> Studio</span></h3>
+                            <div>
+                                <p>Chất Lượng</p>
+                                <p>Chính Hãng</p>
+                                <p>Chính Sách Rõ Ràng</p>
+                            </div>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+            <div class="banner-bottom-grid-left1 animated wow slideInUp" data-wow-delay=".5s">
+                <div class="banner-bottom-grid-left-grid left1-grid grid-left-grid1">
+                    <div class="banner-bottom-grid-left-grid1">
+                        <img src="~/Images/Home_Images/banner-bottom-2.jpg" alt=" " class="img-responsive" />
+                    </div>
+                    <div class="banner-bottom-grid-left1-pos">
+                        <p>Nhiều mẫu mã, ưu đãi</p>
+                    </div>
+                </div>
+                <div class="banner-bottom-grid-left-grid left1-grid grid-left-grid1">
+                    <div class="banner-bottom-grid-left-grid1">
+                        <img src="~/Images/Home_Images/banner-bottom-4.jpg" alt=" " class="img-responsive" />
+                    </div>
+                    <div class="banner-bottom-grid-left1-position">
+                        <div class="banner-bottom-grid-left1-pos1">
+                            <p>Đồng Hành Với Bạn Qua Những Giai Điệu</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="banner-bottom-grid-right animated wow slideInRight" data-wow-delay=".25s">
+                <div class="banner-bottom-grid-left-grid grid-left-grid1">
+                    <div class="banner-bottom-grid-left-grid1">
+                        <img src="~/Images/Home_Images/banner-bottom-3.jpg" alt=" " class="img-responsive" />
+                    </div>
+                    <div class="grid-left-grid1-pos">
+                        <p>Khóa Học Dạy Cơ Bản<span>Violin & Piano </span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>
+<!-- //banner-bottom -->
+<!-- collections -->
+<div class="new-collections">
+    <div class="container">
+        <h3 class="animated wow zoomIn" data-wow-delay=".5s">Nhạc Cụ Mới Nhất</h3>
+        <p class="est animated wow zoomIn" data-wow-delay=".5s">
+                Đây là những sản phẩm mới nhất của chúng tôi, hiện tại dang được bày bán tại của hàng.
+        </p>
+
+        <div class="new-collections-grids">
+            @foreach (var dan in Model)
+            {
+                <div class="col-md-3 new-collections-grid" style="margin-top:5px">
+                    <div class="new-collections-grid1 animated wow slideInUp" data-wow-delay=".5s">
+                        <div class="new-collections-grid1-image">
+                            <a href="@Url.Action("Details", "Home", new { id = dan.MaDAN})" class="product-image"><img src="@dan.AnhMinhHoa" alt=" " class="img-responsive" /></a>
+                            <div class="new-collections-grid1-image-pos">
+                                <a href="@Url.Action("Details", "Home", new { id = dan.MaDAN})">Xem Nhanh</a>
+                            </div>
+                            <div class="new-collections-grid1-right">
+                                <div class="rating">
+                                    <div class="rating-left">
+                                        <img src="~/Images/2.png" alt=" " class="img-responsive" />
+                                    </div>
+                                    <div class="rating-left">
+                                        <img src="~/Images/2.png" alt=" " class="img-responsive" />
+                                    </div>
+                                    <div class="rating-left">
+                                        <img src="~/Images/2.png" alt=" " class="img-responsive" />
+                                    </div>
+                                    <div class="rating-left">
+                                        <img src="~/Images/2.png" alt=" " class="img-responsive" />
+                                    </div>
+                                    <div class="rating-left">
+                                        <img src="~/Images/1.png" alt=" " class="img-responsive" />
+                                    </div>
+                                    <div class="clearfix"> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h4><a href="single.html">@dan.TenDAN</a></h4>
+                        <p style=" display: block; /* or inline-block */ text-overflow: ellipsis; word-wrap: break-word; overflow: hidden; max-height: 9.6em; line-height: 3.2em;">@dan.MoTa</p>
+                        <div class="new-collections-grid1-left simpleCart_shelfItem">
+                            <p><i></i> <span class="item_price">@String.Format("{0:0,0}", @dan.GiaBan) VND</span></p>
+                            <p><span><a class="item_add" href="@Url.Action("ThemGioHang", "Giohang", new { iMaDAN = dan.MaDAN, strURL = Request.Url.ToString() })">add to cart </a></span></p>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+<!-- //collections -->
+<!-- new-timer -->
+<!-- <div class="timer">
+    <div class="container">
+        <div class="timer-grids">
+            <div class="col-md-8 timer-grid-left animated wow slideInLeft" data-wow-delay=".5s">
+                <h3><a href="products.html">sunt in culpa qui officia deserunt mollit</a></h3>
+                <div class="rating">
+                    <div class="rating-left">
+                        <img src="images/2.png" alt=" " class="img-responsive" />
+                    </div>
+                    <div class="rating-left">
+                        <img src="images/2.png" alt=" " class="img-responsive" />
+                    </div>
+                    <div class="rating-left">
+                        <img src="images/2.png" alt=" " class="img-responsive" />
+                    </div>
+                    <div class="rating-left">
+                        <img src="images/2.png" alt=" " class="img-responsive" />
+                    </div>
+                    <div class="rating-left">
+                        <img src="images/1.png" alt=" " class="img-responsive" />
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="new-collections-grid1-left simpleCart_shelfItem timer-grid-left-price">
+                    <p><i>$580</i> <span class="item_price">$550</span></p>
+                    <h4>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam,
+                        nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit
+                        qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui
+                        dolorem eum fugiat quo voluptas nulla pariatur.</h4>
+                    <p><a class="item_add timer_add" href="#">add to cart </a></p>
+                </div>
+                <div id="counter"> </div>
+                <script src="js/jquery.countdown.js"></script>
+                <script src="js/script.js"></script>
+            </div>
+            <div class="col-md-4 timer-grid-right animated wow slideInRight" data-wow-delay=".5s">
+                <div class="timer-grid-right1">
+                    <img src="images/17.jpg" alt=" " class="img-responsive" />
+                    <div class="timer-grid-right-pos">
+                        <h4>Special Offer</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div> -->
+<!-- //new-timer -->
+<!-- collections-bottom -->
+<div class="collections-bottom">
+    <div class="container">
+        <div class="collections-bottom-grids">
+            <div class="collections-bottom-grid animated wow slideInLeft" data-wow-delay=".5s">
+                <h3>Khóa dạy nhạc cho các bé <span>Giảm giá 5.5% cho lần học đâu tiên</span></h3>
+            </div>
+        </div>
+        <div class="newsletter animated wow slideInUp" data-wow-delay=".5s">
+            <h3>Muốn Nhận Thông Tin và Những Ưu Đãi Của Chúng Tôi?</h3>
+            <p>Hãy Nhập Email của bạn vào đây nhé ~</p>
+            <form>
+                <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                <input type="email" value="Enter your email address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your email address';}" required="">
+                <input type="submit" value="Đăng Ký">
+            </form>
+        </div>
+    </div>
+</div>
+<!-- //collections-bottom -->

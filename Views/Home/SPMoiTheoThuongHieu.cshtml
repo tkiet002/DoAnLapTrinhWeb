@@ -1,0 +1,36 @@
+﻿@model IEnumerable<DoAnLapTrinhWeb.Models.DAN>
+
+@foreach (var item in Model) { 
+
+<div class="new-products-grid">
+    <div class="new-products-grid-left">
+        <a href="@Url.Action("Details", "Home", new { id = item.MaDAN})"><img src="@item.AnhMinhHoa" alt=" " class="img-responsive" /></a>
+    </div>
+    <div class="new-products-grid-right">
+        <h4><a href="@Url.Action("Details", "Home", new { id = item.MaDAN})">@item.TenDAN</a></h4>
+        <div class="rating">
+            <div class="rating-left">
+                <img src="~/Images/2.png" alt=" " class="img-responsive">
+            </div>
+            <div class="rating-left">
+                <img src="~/Images/2.png" alt=" " class="img-responsive">
+            </div>
+            <div class="rating-left">
+                <img src="~/Images/2.png" alt=" " class="img-responsive">
+            </div>
+            <div class="rating-left">
+                <img src="~/Images/2.png" alt=" " class="img-responsive">
+            </div>
+            <div class="rating-left">
+                <img src="~/Images/2.png" alt=" " class="img-responsive">
+            </div>
+            <div class="clearfix"> </div>
+            <div class="clearfix"> </div>
+        </div>
+        <div class="simpleCart_shelfItem new-products-grid-right-add-cart">
+            <a class="#" href="@Url.Action("ThemGioHang", "Giohang", new { iMaDAN = item.MaDAN, strURL = Request.Url.ToString() })">Đặt Mua </a>
+        </div>
+    </div>
+    <div class="clearfix"> </div>
+</div>
+}

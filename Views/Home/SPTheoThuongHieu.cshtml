@@ -1,0 +1,169 @@
+﻿@model IEnumerable<DoAnLapTrinhWeb.Models.DAN>
+@{
+    ViewBag.Title = "SPTheoThuongHieu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- breadcrumbs -->
+<div class="breadcrumbs">
+    <div class="container">
+        <ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
+            <li><a href="@Url.Action("Index", "Home")"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
+            <li class="active">Products</li>
+        </ol>
+    </div>
+</div>
+<div class="products">
+    <div class="container">
+        <div class="col-md-4 products-left">
+            <!--<div class="filter-price animated wow slideInUp" data-wow-delay=".5s">
+                <h3>Filter By Price</h3>
+                <ul class="dropdown-menu1">
+                    <li>
+                        <a href="">
+                            <div id="slider-range"></div>
+                            <input type="text" id="amount" style="border: 0" />
+                        </a>
+                    </li>
+                </ul>
+                <script type='text/javascript'>
+//<![CDATA[
+						$(window).load(function(){
+						 $( "#slider-range" ).slider({
+								range: true,
+								min: 0,
+								max: 100000,
+								values: [ 20000, 80000 ],
+								slide: function( event, ui ) {  $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+								}
+					 });
+					$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) + " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+
+
+						});//]]>
+                </script>
+                <script type="text/javascript" src="~/Scripts/jquery-ui.min.js"></script>-->
+                <!---->
+            <!--</div>-->
+            <div class="categories animated wow slideInUp" data-wow-delay=".5s">
+                <h3>Categories</h3>
+                <ul class="cate">
+                    @*<li><a href="products.html">Best Selling</a> <span>(15)</span></li>*@
+                    <li><a href="#">Violin</a> <span>(16)</span></li>
+                    <ul>
+                        @Html.Action("Thuonghieu", "Home")
+                    </ul>
+                    @*<li><a href="products.html">Sales</a> <span>(15)</span></li>*@
+                    <li><a href="#">Piano</a> <span>@*(15)*@</span></li>
+                    <ul>
+                        @Html.Action("ThuonghieuPiano", "Home")
+                    </ul>
+                    <li><a href="#">Guitar</a> <span>@*(15)*@</span></li>
+                    <ul>
+                        @Html.Action("ThuonghieuPiano", "Home")
+                    </ul>
+                </ul>
+            </div>
+            <div class="new-products animated wow slideInUp" data-wow-delay=".5s">
+                <h3>New Products</h3>
+                <div class="new-products-grids">
+                    @Html.Action("SPMoiTheoThuongHieu", "Home")
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-8 products-right">
+            <div class="products-right-grid">
+                <div class="products-right-grids animated wow slideInRight" data-wow-delay=".5s">
+                    <div class="sorting">
+                        <select id="country" onchange="change_country(this.value)" class="frm-field required sect">
+                            <option value="null">Default sorting</option>
+                            <option value="null">Sort by popularity</option>
+                            <option value="null">Sort by average rating</option>
+                            <option value="null">Sort by price</option>
+                        </select>
+                    </div>
+                    <div class="sorting-left">
+                        <select id="country1" onchange="change_country(this.value)" class="frm-field required sect">
+                            <option value="null">Item on page 9</option>
+                            <option value="null">Item on page 18</option>
+                            <option value="null">Item on page 32</option>
+                            <option value="null">All</option>
+                        </select>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="products-right-grids-position animated wow slideInRight" data-wow-delay=".5s">
+                    <!--Mo Ta Thuong Hieu-->
+                    @Html.Action("MoTaThuongHieu", "Home")
+                </div>
+            </div>
+
+            <!--Sản Phẩm-->
+            <div class="products-right-grids-bottom">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-4 products-right-grids-bottom-grid">
+                        <div class="new-collections-grid1 products-right-grid1 animated wow slideInUp" data-wow-delay=".5s">
+                            <div class="new-collections-grid1-image">
+                                <a href="@Url.Action("Details", "Home", new { id = item.MaDAN})" class="product-image"><img src="@item.AnhMinhHoa" alt=" " class="img-responsive"></a>
+                                <div class="new-collections-grid1-image-pos products-right-grids-pos">
+                                    <a href="@Url.Action("Details", "Home", new { id = item.MaDAN})">Xem Chi Tiết</a>
+                                </div>
+                                <div class="new-collections-grid1-right products-right-grids-pos-right">
+                                    <div class="rating">
+                                        <div class="rating-left">
+                                            <img src="~/Images/2.png" alt=" " class="img-responsive">
+                                        </div>
+                                        <div class="rating-left">
+                                            <img src="~/Images/2.png" alt=" " class="img-responsive">
+                                        </div>
+                                        <div class="rating-left">
+                                            <img src="~/Images/2.png" alt=" " class="img-responsive">
+                                        </div>
+                                        <div class="rating-left">
+                                            <img src="~/Images/2.png" alt=" " class="img-responsive">
+                                        </div>
+                                        <div class="rating-left">
+                                            <img src="~/Images/2.png" alt=" " class="img-responsive">
+                                        </div>
+                                        <div class="clearfix"> </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h4 style="font-size: 15px;"><a href="@Url.Action("Details", "Home", new { id = item.MaDAN})"> @item.TenDAN</a></h4>
+                            <p style=" display: block; /* or inline-block */ text-overflow: ellipsis; word-wrap: break-word; overflow: hidden; max-height: 7.6em; line-height: 1.8em;">@item.MoTa</p>
+                            <div class="simpleCart_shelfItem products-right-grid1-add-cart">
+                                <p><i><!--Ghi so tien goc o day--></i> <span class="item_price">@String.Format( "{0:0,0}", @item.GiaBan ) VNĐ</span><a class="item_add" href="@Url.Action("ThemGioHang", "Giohang", new { iMaDAN = item.MaDAN, strURL = Request.Url.ToString() })">add to cart </a></p> <!--tag i dung cho giam gia-->
+                            </div>
+                        </div>
+                    </div>
+
+                }
+
+            </div>
+
+            @*<nav class="numbering animated wow slideInRight" data-wow-delay=".5s">
+            <ul class="pagination paging">
+                <li>
+                    <a href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="active"><a href="#">1<span class="sr-only">(current)</span></a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li>
+                    <a href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>*@
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<!-- //breadcrumbs -->

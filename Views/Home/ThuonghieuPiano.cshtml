@@ -1,0 +1,8 @@
+﻿@model IEnumerable<DoAnLapTrinhWeb.Models.THUONGHIEU>
+
+
+@foreach (var item in Model)
+{
+    @*<li><a href="@Url.Action("SPTheoThuongHieu", "Home", new { id = item.MaTH , math = item.MaLoaiDan})">@item.TenTHUONGHIEU</a></li>*@
+    <li><a href="@Url.Action("SPTheoThuongHieu", "Home", new { math = item.MaTH , maloaidan = 2})">@item.TenTHUONGHIEU</a></li>
+}
