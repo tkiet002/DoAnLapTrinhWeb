@@ -131,6 +131,9 @@ namespace DoAnLapTrinhWeb.Controllers
             donDatHang.NgayDH = DateTime.Now;
             var ngayGiao = form["NgayGiao"].ToString();
             ngayGiao = String.Format("{0:MM/dd/yyyy}", form["NgayGiao"]);
+            if (String.IsNullOrEmpty(ngayGiao)) {
+                ngayGiao = DateTime.Now.ToString();
+            }
             donDatHang.NgayGiao = DateTime.Parse(ngayGiao);
             donDatHang.TinhTrangGiaoHang = false;
             donDatHang.DaThanhToan = false;

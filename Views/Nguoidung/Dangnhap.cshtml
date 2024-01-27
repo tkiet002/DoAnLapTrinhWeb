@@ -8,7 +8,7 @@
 <div class="breadcrumbs">
     <div class="container">
         <ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
-            <li><a href="@Url.Action("Index", "Home")"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
+            <li><a href="@Url.Action("Index", "Home")"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Trang Trủ</a></li>
             <li class="active">Đăng Nhập</li>
         </ol>
     </div>
@@ -17,7 +17,7 @@
 <!-- login -->
 <div class="login">
     <div class="container">
-        <h3 class="animated wow zoomIn" data-wow-delay=".5s">Login Form</h3>
+        <h3 class="animated wow zoomIn" data-wow-delay=".5s">Đăng Nhập</h3>
         <p class="est animated wow zoomIn" data-wow-delay=".5s">
             @ViewData["LoiDangNhap"];         
         </p>
@@ -32,13 +32,13 @@
                 @Html.Password("Matkhau", "", new { placeholder = "Mật Khẩu" })
 
                 <div class="forgot">
-                    <a href="#">Forgot Password?</a>
+                    <a href="#">Quên mật khẩu?</a>
                 </div>
-                <input type="submit" value="Login">
+                <input type="submit" value="Đăng Nhập">
             }
         </div>
-        <h4 class="animated wow slideInUp" data-wow-delay=".5s">For New People</h4>
-        <p class="animated wow slideInUp" data-wow-delay=".5s"><a href="@Url.Action("Dangky", "Nguoidung")">Register Here</a> (Or) go back to <a href="@Url.Action("Index", "Home")">Home<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></a></p>
+        <h4 class="animated wow slideInUp" data-wow-delay=".5s">Bạn là người mới?</h4>
+        <p class="animated wow slideInUp" data-wow-delay=".5s"><a href="@Url.Action("Dangky", "Nguoidung")">Đăng ký ngay</a> (Hoặc) Trở lại <a href="@Url.Action("Index", "Home")">Trang trủ<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></a></p>
     </div>
 </div>
 <!-- //login -->

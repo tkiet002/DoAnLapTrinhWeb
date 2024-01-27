@@ -1,0 +1,89 @@
+﻿@model DoAnLapTrinhWeb.Models.DAN
+
+@{
+    ViewBag.Title = "XoaDan";
+    Layout = "~/Areas/AdminArea/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Xóa Đàn</h2>
+
+<h3>Bạn có chắc bạn muốn xóa đàn này? Hãy kiểm tra kỹ trước khi xóa</h3>
+<div>
+    <h4>DAN</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenDAN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenDAN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GiaBan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaBan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MoTa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MoTa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnhMinhHoa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnhMinhHoa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayCapNhat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayCapNhat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoLuongTon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuongTon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaTH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.THUONGHIEU.TenTHUONGHIEU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaLoaiDan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoaiDan.MaLoaiDan)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

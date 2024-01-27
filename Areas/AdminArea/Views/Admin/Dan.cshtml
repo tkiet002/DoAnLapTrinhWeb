@@ -1,0 +1,128 @@
+﻿@using DoAnLapTrinhWeb.Models
+@using PagedList.Mvc
+
+@model PagedList.PagedList<DoAnLapTrinhWeb.Models.DAN>
+
+@helper Truncate(string input , int length) 
+{ 
+
+    if (input.Length < length)
+    {
+            @input
+    }
+    else 
+    { 
+        @input.Substring(0, length)<text>....</text>
+    
+    
+    }
+
+
+}
+
+
+@{
+    ViewBag.Title = "Dan";
+    Layout = "~/Areas/AdminArea/Views/Shared/_LayoutAdmin.cshtml";
+
+}
+
+<h2>Dan</h2>
+
+<p>
+    @Html.ActionLink("Tạo Mới", "Themdanmoi")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.First().TenDAN)*@
+            Tên Sách
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.First().GiaBan)*@
+            Giá Bán
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.First().MoTa)*@
+            Mô Tả
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.First().AnhMinhHoa)*@
+            Ảnh Minh Họa
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.First().NgayCapNhat)*@
+            Ngày Cập Nhật
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.First().SoLuongTon)*@
+            Số Lượng Tồn Kho
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.First().MaTH)*@
+            Tên Thương Hiệu
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.First().MaLoaiDan)*@
+            Loại Đàn
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenDAN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GiaBan)
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.MoTa)*@
+            @Truncate(item.MoTa, 100);
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.AnhMinhHoa)*@
+            <img src="@Url.Content(item.AnhMinhHoa)" class="anhMinhHoa"/>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayCapNhat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoLuongTon)
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.MaTH)*@
+            @Html.DisplayFor(modelItem => item.THUONGHIEU.TenTHUONGHIEU)
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.MaLoaiDan)*@
+            @Html.DisplayFor(modelItem => item.LoaiDan.TenLoaiDan)
+        </td>
+        <td>
+            @*@Html.ActionLink("", "ChiTietDan", new { id=item.MaDAN }) |*@
+
+            @Html.ActionLink("Chi Tiết", "ChiTietDan", new { id = item.MaDAN}) |
+            @Html.ActionLink("Sửa", "SuaThongTin", new { id=item.MaDAN }) |
+            @Html.ActionLink("Xóa", "XoaDan", new { id=item.MaDAN })
+        </td>
+    </tr>
+}
+
+</table>
+
+@*Tạo liên kết trang *@
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;
+
+<div class="menuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("Dan" , new { page = page}))
+</div>
+<style>
+    .menuTrang {
+        display:inline;
+    }
+    .anhMinhHoa {
+        max-height:100px;
+        max-width:100px;
+    }
+</style>
